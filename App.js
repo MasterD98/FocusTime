@@ -10,9 +10,10 @@ export default function App() {
       {focusSubject ? (
         <Text>Here is where Im going to build a timer</Text>
       ):(
-        <Focus></Focus>
+        <Focus addSubject= {setFocusSubject}></Focus>
       )}
       <StatusBar style="auto"/>
+      <Text>{focusSubject}</Text>
     </View>
   );
 }
@@ -20,8 +21,17 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#252250',
   },
 });
+
+
+
+
+
+
+
+
+
+
+
