@@ -8,7 +8,7 @@ const formatTime=(time)=> time<10 ? `0${time}`:time;
 
 export const Coundtdown = ({
         timeInMin=1,
-        isPaused,
+        isPaused=true,
     }) =>{
         const interval=React.useRef(null);
         const coundtDown=()=>{
@@ -24,9 +24,10 @@ export const Coundtdown = ({
 
         }
         useEffect(()=>{
+            if(isPaused){return}
             interval.current=setInterval(coundtDown,1000);
             return ()=> clearInterval(interval.current)
-        },[])
+        },[isPaused])
         const[millis,setMillis]=useState(minsTomils(timeInMin));
         const minutes=Math.floor(millis/1000/60)%60;
         const seconds=Math.floor(millis/1000)%60;
