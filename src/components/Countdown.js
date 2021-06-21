@@ -1,16 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Text,View,StyleSheet} from 'react-native';
 import { colors } from '../utils/colors';
 import { fontSizes, spacing } from '../utils/sizes';
 
 const minsTomils=(min)=> min*60*1000;
-
 const formatTime=(time)=> time<10 ? `0${time}`:time;
 
 export const Coundtdown = ({
         timeInMin=1,
         isPaused,
     }) =>{
+        const interval=React.useRef(null);
+        const coundtDown=()=>{
+            setMillis((time)=>{
+                if(time===0){
+                    //do more stuff here
+                    return time;
+                }
+                const timeLeft=time-1000;
+                //repot the progress
+                return timeLeft;
+            })
+
+        }
+        useEffect(()=>{
+            interval.current=setInterval(coundtDown,1000);
+            return ()=> clearInterval(interval.current)
+        },[])
         const[millis,setMillis]=useState(minsTomils(timeInMin));
         const minutes=Math.floor(millis/1000/60)%60;
         const seconds=Math.floor(millis/1000)%60;
