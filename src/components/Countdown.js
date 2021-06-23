@@ -9,6 +9,7 @@ const formatTime=(time)=> time<10 ? `0${time}`:time;
 export const Coundtdown = ({
         timeInMin=1,
         isPaused=true,
+        onProgress,
     }) =>{
         const interval=React.useRef(null);
         const coundtDown=()=>{
@@ -18,7 +19,7 @@ export const Coundtdown = ({
                     return time;
                 }
                 const timeLeft=time-1000;
-                //repot the progress
+                onProgress(timeLeft/minsTomils(minutes))
                 return timeLeft;
             })
 
