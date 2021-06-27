@@ -7,7 +7,7 @@ const minsTomils=(min)=> min*60*1000;
 const formatTime=(time)=> time<10 ? `0${time}`:time;
 
 export const Coundtdown = ({
-        timeInMin=1,
+        timeInMin,
         isPaused=true,
         onProgress,
     }) =>{
@@ -25,7 +25,10 @@ export const Coundtdown = ({
 
         }
         useEffect(()=>{
-            if(isPaused){return}
+            if(isPaused){
+                if(interval.current){clearInterval(interval.current)}
+                return
+            }
             interval.current=setInterval(coundtDown,1000);
             return ()=> clearInterval(interval.current)
         },[isPaused])
