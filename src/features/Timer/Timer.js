@@ -17,6 +17,8 @@ export const Timer=({focusSubject})=>{
 
     const changeTime=(min)=>{
         setTimeInMin(min)
+        setProgress(1)
+        setIsStarted(false)
     }
 
     return(

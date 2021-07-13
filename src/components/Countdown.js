@@ -12,6 +12,7 @@ export const Coundtdown = ({
         onProgress,
     }) =>{
         const interval=React.useRef(null);
+        const[millis,setMillis]=useState(minsTomils(timeInMin));
         const coundtDown=()=>{
             setMillis((time)=>{
                 if(time===0){
@@ -25,6 +26,10 @@ export const Coundtdown = ({
 
         }
         useEffect(()=>{
+            setMillis(minsTomils(timeInMin))
+        },[timeInMin])
+
+        useEffect(()=>{
             if(isPaused){
                 if(interval.current){clearInterval(interval.current)}
                 return
@@ -32,7 +37,6 @@ export const Coundtdown = ({
             interval.current=setInterval(coundtDown,1000);
             return ()=> clearInterval(interval.current)
         },[isPaused])
-        const[millis,setMillis]=useState(minsTomils(timeInMin));
         const minutes=Math.floor(millis/1000/60)%60;
         const seconds=Math.floor(millis/1000)%60;
     return(
