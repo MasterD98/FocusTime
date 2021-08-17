@@ -10,7 +10,7 @@ export const Focus= ({addSubject})=> {
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.title}>What would you like to focus on</Text>
+        <Text style={styles.title}>What would you like to focus on a</Text>
           <View style={styles.inputContainer}>
             <TextInput style={styles.textInputContainer}
             onSubmitEditing={({nativeEvent})=>{
