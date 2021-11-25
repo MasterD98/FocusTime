@@ -29,7 +29,7 @@ export const Coundtdown = ({
             setMillis(minsTomils(timeInMin))
         },[timeInMin])
 
-        useEffect(()=>{
+        useEffect(()=>{ 
             if(isPaused){
                 if(interval.current){clearInterval(interval.current)}
                 return

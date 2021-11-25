@@ -5,8 +5,10 @@ import {Focus} from './src/features/focus/Focus'
 import {Timer} from './src/features/Timer/Timer'
 import { colors } from './src/utils/colors';
 import { spacing } from './src/utils/sizes';
+import { useKeepAwake } from 'expo-keep-awake';
 
 export default function App() {
+  useKeepAwake();
   const [focusSubject, setFocusSubject]=useState('Timer');
   return (
     <View style={styles.container}>
