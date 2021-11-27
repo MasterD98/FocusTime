@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {Text,View,StyleSheet} from 'react-native';
 import { colors } from '../utils/colors';
 import { fontSizes, spacing } from '../utils/sizes';
-
+// 
 const minsTomils=(min)=> min*60*1000;
 const formatTime=(time)=> time<10 ? `0${time}`:time;
 
