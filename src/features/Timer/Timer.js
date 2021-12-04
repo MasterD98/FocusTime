@@ -45,23 +45,38 @@ export const Timer=({focusSubject,onTimerEnd})=>{
     return(
         <View style={styles.container}>
             <View style={styles.countdown}>
-                <Coundtdown timeInMin={timeInMin}  isPaused={!isStarted} onProgress={onProgress} onEnd={onEnd}/>
+                <Coundtdown 
+                    timeInMin={timeInMin}  
+                    isPaused={!isStarted} 
+                    onProgress={onProgress} 
+                    onEnd={onEnd}
+                />
             </View>
             <View style={{paddingTop:spacing.xxl}} >
                 <Text style={styles.title}>Focusing on:</Text>
                 <Text style={styles.task}>{focusSubject}</Text>
             </View>
                 <View style={{paddingTop:spacing.sm}}>
-                    <ProgressBar progress={progress} color='#5E84E2' style={{height:10}}/>
+                    <ProgressBar 
+                        progress={progress} 
+                        color='#5E84E2' 
+                        style={{height:10}}
+                    />
                 </View>
                 <View style={styles.buttonWrapper}>
                     <Timing onChangeTime={changeTime}/>
                 </View>
                 <View style={styles.buttonWrapper}>
                     {!isStarted ? (
-                        <RoundedButton title='start' onPress={()=>setIsStarted(true)}/>
+                        <RoundedButton 
+                            title='start' 
+                            onPress={()=>setIsStarted(true)}
+                        />
                     ):(
-                        <RoundedButton title='pause' onPress={()=>setIsStarted(false)}/>
+                        <RoundedButton 
+                            title='pause' 
+                            onPress={()=>setIsStarted(false)}
+                        />
                     )}
                 </View>
         </View>
