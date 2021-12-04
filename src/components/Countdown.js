@@ -10,13 +10,15 @@ export const Coundtdown = ({
         timeInMin,
         isPaused=true,
         onProgress,
+        onEnd
     }) =>{
         const interval=React.useRef(null);
         const[millis,setMillis]=useState(minsTomils(timeInMin));
         const coundtDown=()=>{
             setMillis((time)=>{
                 if(time===0){
-                    //do more stuff here
+                        clearInterval(interval.current)
+                        onEnd();
                     return time;
                 }
                 const timeLeft=time-1000;
