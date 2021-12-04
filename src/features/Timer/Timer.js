@@ -10,7 +10,7 @@ import { useKeepAwake } from 'expo-keep-awake';
 
 const DEFAULT_TIME=0.1;
 
-export const Timer=({focusSubject})=>{
+export const Timer=({focusSubject,onTimerEnd})=>{
     useKeepAwake()
     const [timeInMin,setTimeInMin]=useState(DEFAULT_TIME);
     const [isStarted,setIsStarted]=useState(false);
@@ -33,6 +33,7 @@ export const Timer=({focusSubject})=>{
         setTimeInMin(DEFAULT_TIME)
         setProgress(1)
         setIsStarted(false)
+        onTimerEnd()
     }
 
     const changeTime=(min)=>{

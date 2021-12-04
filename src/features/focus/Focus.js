@@ -16,9 +16,8 @@ export const Focus= ({addSubject})=> {
             onSubmitEditing={({nativeEvent})=>{
               setTmpItem(nativeEvent.text)
             }}/>
-            <RoundedButton size={50} title='+' onPress={()=>{
-              addSubject(tmpItem)
-            }}></RoundedButton>
+          <RoundedButton size={50} title='+' onPress={()=>{addSubject(tmpItem)}
+            }/>
           </View>
       </View>
     </View>
