@@ -17,8 +17,7 @@ export const Coundtdown = ({
         const coundtDown=()=>{
             setMillis((time)=>{
                 if(time===0){
-                        clearInterval(interval.current)
-                        onEnd();
+                    clearInterval(interval.current)
                     return time;
                 }
                 const timeLeft=time-1000;
@@ -31,7 +30,10 @@ export const Coundtdown = ({
         },[timeInMin])
 
         useEffect(()=>{
-            onProgress(millis/minsTomils(timeInMin))
+            onProgress(millis/minsTomils(timeInMin));
+            if(millis===0){
+                onEnd();
+            }
         },[millis])
 
         useEffect(()=>{ 
