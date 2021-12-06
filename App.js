@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState ,useEffect } from 'react';
-import { StyleSheet, Text, View,Platform,AsyncStorage } from 'react-native';
+import { StyleSheet, Text, View,Platform } from 'react-native';
+import {AsyncStorage} from '@react-native-async-storage/async-storage'
 import {Focus} from './src/features/focus/Focus'
 import {Timer} from './src/features/Timer/Timer'
 import {FocusHistory} from './src/features/focus/FocusHistory'

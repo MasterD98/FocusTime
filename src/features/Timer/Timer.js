@@ -57,7 +57,6 @@ export const Timer=({focusSubject,onTimerEnd,clearSubject})=>{
                 <Text style={styles.task}>{focusSubject}</Text>
             </View>
                 <View style={{paddingTop:spacing.sm}}>
-                {console.log(progress)}
                     <ProgressBar 
                         progress={progress} 
                         color='#5E84E2' 
