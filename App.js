@@ -20,7 +20,7 @@ export default function App() {
     setFocusHistory([...focusHistory,{subject,status}])
   }
   const onClear=()=>{
-    //TODO
+    setFocusHistory([]);
   }
 
 

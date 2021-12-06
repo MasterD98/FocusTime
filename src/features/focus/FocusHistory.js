@@ -4,7 +4,6 @@ import {fontSizes,spacing} from "../../utils/sizes";
 import { RoundedButton } from "../../components/RoundedButton";
 
 const historyItems=({item,index})=>{
-    console.log(item)
     return(
         <Text style={ {color:item.status >1? 'red' :'green',fontSize:fontSizes.md}   }>{item.subject}</Text>
     )
@@ -26,6 +25,9 @@ export const FocusHistory=({focusHistory,onClear})=>{
                             data={focusHistory}
                             renderItem={historyItems}
                         />
+                        <View style={styles.clearContainar}>
+                            <RoundedButton size={75} title='Clear' onPress={()=>{clearHistory()}}/>    
+                        </View>
                     </>
                 )}
             </SafeAreaView>
@@ -37,5 +39,10 @@ const styles=StyleSheet.create({
     title:{
         color:'white',
         fontSize:fontSizes.lg
+    },
+    clearContainar:{
+        alignItems:'center',
+        padding:spacing.md
     }
+
 })
